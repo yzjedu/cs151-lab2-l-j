@@ -12,11 +12,11 @@ import math
 year_in_seconds = 31536000
 
 # requests birth, death, and immigration rates + current population + desired years from user
-birth_rate = input("How many seconds between births in your country? ")
-death_rate = input("How many seconds between deaths in your country? ")
-immigration_rate = input("How many seconds between immigrations in your country? ")
-current_population = input("What is the current population in your country? ")
-years_in_future = input("How many years in the future do you want to calculate? ")
+birth_rate = int(input("How many seconds between births in your country? "))
+death_rate = int(input("How many seconds between deaths in your country? "))
+immigration_rate = int(input("How many seconds between immigrations in your country? "))
+current_population =int(input("What is the current population in your country? "))
+years_in_future = int(input("How many years in the future do you want to calculate? "))
 
 # calculates the population change given the constant and user input values and rounds down to a whole number without typecasting as an integer
 population_change = ((year_in_seconds/birth_rate + year_in_seconds/immigration_rate - year_in_seconds/death_rate) * years_in_future) // 1
@@ -25,9 +25,9 @@ population_change = ((year_in_seconds/birth_rate + year_in_seconds/immigration_r
 future_population = current_population + population_change
 
 # prints the current population and calculated future population to the user
-print('In', years_in_future,", your country's population will go from", current_population, "to", future_population,)
+print('In', years_in_future,"year(s), your country's population will go from", current_population, "to", future_population,)
 
-# determins whether it is an increase or decrease, then prints a statement containing the population change accordingly
+# determines whether it is an increase or decrease, then prints a statement containing the population change accordingly
 if population_change > 0:
     print('The population will increase by', population_change,'people')
 else:
